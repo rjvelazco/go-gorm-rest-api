@@ -4,14 +4,13 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/rjvelazco/go-gorm-restapi/routes"
 )
 
 func main() {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello, World!"))
-	})
+	router.HandleFunc("/", routes.HomeHandler)
 
 	http.ListenAndServe(":3000", router)
 }
