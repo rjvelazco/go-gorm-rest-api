@@ -4,10 +4,13 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/rjvelazco/go-gorm-restapi/db"
 	"github.com/rjvelazco/go-gorm-restapi/routes"
 )
 
 func main() {
+	db.DBConnection()
+
 	router := mux.NewRouter()
 
 	router.HandleFunc("/", routes.HomeHandler)
